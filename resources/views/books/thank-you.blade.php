@@ -12,11 +12,19 @@
 </head>
 <body>
 <div class="container-sm">
-    <h1>Thank you {{ $first_name }} {{ $last_name }} for reserving books!</h1>
+    <h1 align="center">Thank you, {{ $first_name }} {{ $last_name }} for reserving books!</h1>
 
+    <div align="center">
+    <div> Here are the books you borrowed: </div>
     <ul class="list-unstyled">
-    <!-- 1. Display all the reserved books -->
+    @foreach ($reserved_books as $book)
+    <li>
+        <strong>{{ $book['title'] }}</strong> by {{ $book['author'] }}, {{ $book['year_published'] }}
+    </li>
+    @endforeach
     </ul>
+    
+    </div>
 
 </div>
 
